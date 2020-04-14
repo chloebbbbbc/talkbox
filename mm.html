@@ -1,0 +1,87 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no, target-densitydpi=device-dpi" />
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+    var counter = 0;
+    function addChatMessage() {
+        var chat = document.getElementById('Message'); // finds the container
+        var div = document.createElement('div');
+            div.id = "newMsg" + counter++;
+            div.className = "container";
+            div.innerHTML = chat.value;
+        var submitMsg = document.getElementById('submit');
+        var parDiv = document.getElementById('chatMsg');
+            parDiv.appendChild(div);
+    }
+</script>
+
+<script>
+    window.onload = function() {
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? ' p.m' : ' a.m';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        document.getElementById('time').innerHTML = " " + strTime + "<br />";
+        document.getElementById('date').innerHTML = months[date.getMonth()] + '. ' + date.getDate() + ". " + date.getFullYear();
+    };    
+</script>
+<style>
+    body {
+        color: linen;
+    }
+
+    #newMsg0{
+        color: linen;
+    }
+    #newMsg1{
+        color: linen;
+    }
+    #newMsg2{
+        color: linen;
+    }
+    #newMsg3{
+        color: linen;
+    }
+    #newMsg4{
+        color: linen;
+    }
+    #newMsg5{
+        color: linen;
+    }
+    textarea {
+        color: linen;
+    }
+    </style>
+<body style="background:rgb(0, 0, 0)" >
+    <div id="time"></div>
+    <div id="date"></div>
+    <div class="ellipsemoon1"></div>
+    <div class="ellipsemoon2"></div>
+    <div class="ellipsemoon3"></div>
+    <div class="ellipsemoon4"></div>
+    <div class="ellipsemoon5"></div>
+   
+    <div id="textMsg">
+        <div id="date"></div>
+    
+        <div class = "sendText">
+            <form name = "sendMsg">
+                <textarea id="Message" name="Message" class="msg" placeholder="... Type "></textarea>
+                
+            </form>
+        </div>
+        
+        
+    </div>
+    <input type="button" id="submit" value="Enter" onclick = "addChatMessage()">
+    <div id="chatMsg" class = "chatMsg" >
+        <div class="container">
+        </div>
+    </div>
+</body>

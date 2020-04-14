@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html> 
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<head> 
+    <script>
+        var counter = 0;
+        function addChatMessage() {
+            var chat = document.getElementById('Message'); // finds the container
+            var div = document.createElement('div');
+                div.id = "newMsg" + counter++;
+                div.className = "container";
+                div.innerHTML = chat.value;
+            var submitMsg = document.getElementById('submit');
+            var parDiv = document.getElementById('chatMsg');
+                parDiv.appendChild(div);
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
+            var date = new Date();
+            var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? ' p.m' : ' a.m';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        document.getElementById('time').innerHTML = " " + strTime + "<br />"; 
+            document.getElementById('date').innerHTML = months[date.getMonth()] + '.' + date.getDate()+ "  " + date.getFullYear();;
+        };    
+    </script>
+
+    
+</head> 
+<body style="text-align:center;"> 
+    
+
+<div id="textMsg">
+    <div id="date"></div>
+    <div id="time"></div>
+    
+    <div class = "sendText">
+        <form name = "sendMsg">
+            <textarea id="Message" name="Message" class="msg" placeholder="...  "></textarea>
+            <input type="button" id="submit" value="Enter" onclick = "addChatMessage()">
+        </form>
+    </div>
+    
+    
+</div>
+<div id="chatMsg" class = "chatMsg" >
+    <div class="container">
+    </div>
+</div>
+
+<!-- <div id="chatMsg" class = "chatMsg" ></div>
+    <div class="container"></div>
+        <div id="newMsg0" class="container">Maybe I should not lie</div>
+        <div id="newMsg1" class="container">Espero que algún diía voy a ser como ella</div>
+        <div id="newMsg2" class="container">나는 결혼했지만 그를 사랑하지 않아</div>
+        <div id="newMsg3" class="container">如果有了100万能干什么？</div>
+        <div id="newMsg4" class="container">I didn’t mean to hit her...</div>
+        <div id="newMsg5" class="container">有时候人真的好奇怪</div>
+    </div>
+</div> -->
+</body> 
+  
+</html> 

@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html> 
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<head> 
+    <script>
+        var counter = 0;
+        function addChatMessage() {
+            var chat = document.getElementById('Message'); // finds the container
+            var div = document.createElement('div');
+                div.id = "newMsg" + counter++;
+                div.className = "container";
+                div.innerHTML = chat.value;
+            var submitMsg = document.getElementById('submit');
+            var parDiv = document.getElementById('chatMsg');
+                parDiv.appendChild(div);
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
+            var date = new Date();
+            var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? ' p.m' : ' a.m';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        document.getElementById('time').innerHTML = " " + strTime + "<br />"; 
+            document.getElementById('date').innerHTML = months[date.getMonth()] + '.' + date.getDate()+ "  " + date.getFullYear();;
+        };      
+    </script>
+    
+    <style>
+        body {
+            color: linen;
+        }
+
+        #newMsg0{
+            color: linen;
+        }
+        #newMsg1{
+            color: linen;
+        }
+        #newMsg2{
+            color: linen;
+        }
+        #newMsg3{
+            color: linen;
+        }
+        #newMsg4{
+            color: linen;
+        }
+        #newMsg5{
+            color: linen;
+        }
+        textarea {
+            color: linen;
+        }
+        </style>
+</head> 
+
+<body style="text-align:center; background-image: url(bg.svg);"> 
+
+    <div id="textMsg">
+        <div id="date"></div>
+        <div id="time"></div>
+
+    <div class = "sendText">
+        <form name = "sendMsg">
+            <textarea id="Message" name="Message" class="msg" placeholder="...  "></textarea>
+            <input type="button" id="submit" value="Enter" onclick = "addChatMessage()">
+        </form>
+    </div>
+    
+    
+</div>
+<div id="chatMsg" class = "chatMsg">
+    <div class="container">
+    </div>
+</div>
+</body> 
+  
+</html> 
